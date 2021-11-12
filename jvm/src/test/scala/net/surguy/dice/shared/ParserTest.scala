@@ -19,7 +19,13 @@ class ParserTest extends Specification {
     "return a single exploding die for d6!" in { parse("d6!") mustEqual Seq(Die(6, dieType = Exploding)) }
     "return multiple 6 sided die for 2d6!" in { parse("2d6!") mustEqual Seq(Die(6, dieType = Exploding), Die(6, dieType = Exploding)) }
     "ignore extraneous text" in { parse("Roll 2d6 now") mustEqual Seq(d6, d6) }
-    "return multiple dice if there are different dice patterns in the description" in { parse("d12 + 2d6") mustEqual Seq(Die(12), d6, d6) }.pendingUntilFixed
   }
+
+  "parsing a dice description for multiple patterns" should {
+    "match repeated dice patterns in the description" in { parse("d12 + d6") mustEqual Seq(Die(12), d6) }
+    "still break out multiple dice in an individual description" in { parse("d12 + 2d6 + 1d10") mustEqual Seq(Die(12), d6, d6, Die(10)) }
+    "still ignore extraneous text" in { parse("roll d12 and 2d6 then 1d10 please") mustEqual Seq(Die(12), d6, d6, Die(10)) }
+  }
+
 
 }
