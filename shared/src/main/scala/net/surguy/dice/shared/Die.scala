@@ -11,6 +11,6 @@ object Appearance {
   val default: Appearance = Appearance("red")
 }
 
-case class Die(sides: Int, appearance: Appearance = Appearance.default, dieType: DieType = Standard, id: String = UUID.randomUUID().toString)
+case class Die(sides: Int, dieType: DieType = Standard, appearance: Appearance = Appearance.default, id: String = UUID.randomUUID().toString)
 
 case class Result(die: Die, results: Seq[Int])

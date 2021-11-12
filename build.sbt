@@ -14,7 +14,10 @@ lazy val dice = crossProject.in(file(".")).
   settings(
     name := "scalajs-dice",
     organization := "net.surguy",
-    version := "0.1"
+    version := "0.1",
+    scalacOptions ++= Seq(
+      "-Xfatal-warnings"
+    )
   )
   .jvmSettings(
     libraryDependencies ++= Seq(
