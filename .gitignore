@@ -1,0 +1,13 @@
+target/
+
+
+.DS_Store
+*.tmp
+*.~*
+
+.bsp
+.idea
+.cache
+.classpath
+.project
+.settings/
