@@ -3,9 +3,63 @@
 <head>
     <title>scalaJs Dice</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        body { margin-left: 100px; margin-top: 100px; }
+
+        .dice { --size: 100px; --half: calc(var(--size) / 2); }
+        .die { font-size: 3em; font-family: Consolas, sans-serif; transform-style: preserve-3d;  }
+
+        .die {
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+            width: var(--size);
+            height: var(--size);
+        }
+
+        @keyframes spin {
+            from { transform: rotate3d(0, 0, 0, 0deg); }
+            to { transform: rotate3d(1, 1, 1, 360deg); }
+        }
+
+        .die-red .die-faces div { background-color: rgba(200,0,0,150); }
+
+        .die-faces { transform-style: preserve-3d; backface-visibility: visible; }
+
+        .die-faces div {
+            position: absolute; width: var(--size); height: var(--size);
+            display: flex; justify-content: center; align-items: center;
+            border: solid 1px black;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+        }
+
+        .d6 .die-faces div:nth-child(1) { transform: rotateY(  0deg) translateZ(var(--half)); }
+        .d6 .die-faces div:nth-child(2) { transform: rotateY( 90deg) translateZ(var(--half)); }
+        .d6 .die-faces div:nth-child(3) { transform: rotateX(-90deg)  translateZ(var(--half)); }
+        .d6 .die-faces div:nth-child(4) { transform: rotateX( 90deg)  translateZ(var(--half)); }
+        .d6 .die-faces div:nth-child(5) { transform: rotateY(-90deg) translateZ(var(--half)); }
+        .d6 .die-faces div:nth-child(6) { transform: rotateY(180deg)  translateZ(var(--half)); }
+
+    </style>
 </head>
 <body>
-<div id="dice"></div>
+<div class="dice">
+
+    <div class="die d6 die-red">
+        <div class="die-faces">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+
+</div>
 
 <!--suppress HtmlUnknownTarget -->
 <script type="text/javascript" src="../scalajs-dice-fastopt.js"></script>
