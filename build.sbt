@@ -10,7 +10,7 @@ lazy val root = project.in(file(".")).
     publishLocal := {}
   )
 
-lazy val dice = crossProject(JSPlatform, JVMPlatform).
+lazy val dice = crossProject.in(file(".")).
   settings(
     name := "scalajs-dice",
     organization := "net.surguy",
