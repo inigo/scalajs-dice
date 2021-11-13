@@ -37,15 +37,6 @@
             to { transform: rotate3d(1, 1, 1, 360deg); }
         }
 
-        @keyframes bounce {
-            0%   { transform: translate3d(0, 0, 0); }
-            20%  { transform: translate3d(100px, 500px, 20px); }
-            40%  { transform: translate3d(200px, 100px, 40px); }
-            60%  { transform: translate3d(300px, 500px, 60px); }
-            80%  { transform: translate3d(400px, 200px, 80px); }
-            100% { transform: translate3d(500px, 500px, 100px); }
-        }
-
         .die-red .die-faces div {
             background-color: rgba(200,0,0,150);
             background-image: url("redmarble.jpg");
@@ -89,7 +80,8 @@
 </div>
 
 <!--suppress HtmlUnknownTarget -->
-<script type="text/javascript" src="../scalajs-dice-fastopt.js"></script>
+<!--<script type="text/javascript" src="../scalajs-dice-fastopt.js"></script>-->
+<script type="text/javascript" src="../../../../js/target/scala-2.13/scalajs-dice-fastopt/main.js"></script>
 <script>dice.play();</script>
 </body>
 </html>
