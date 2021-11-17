@@ -37,12 +37,18 @@
             to { transform: rotate3d(1, 1, 1, 360deg); }
         }
 
-        .die-red .die-faces div {
+        .die .die-faces div {
             background-color: rgba(200,0,0,150);
             background-image: url("redmarble.jpg");
             text-shadow: 1px 1px 1px #606060;
             color: #303030;
         }
+
+        .die-red .die-faces div { filter: hue-rotate(0deg); }
+        .die-teal .die-faces div { filter: hue-rotate(180deg); }
+        .die-blue .die-faces div { filter: hue-rotate(225deg); }
+        .die-purple .die-faces div { filter: hue-rotate(270deg); }
+        .die-green .die-faces div { filter: hue-rotate(90deg); }
 
         .die-faces { transform-style: preserve-3d; backface-visibility: visible; }
 
